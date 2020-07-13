@@ -4,4 +4,4 @@ services:
 before_install:
   - docker build -t yshanker/docker-react -f Dockerfile.dev .
 script: 
-  - docker run yshanker/docker-react npm run test -- --coverage
+   - docker run -e CI=true yshanker/docker-react npm run test

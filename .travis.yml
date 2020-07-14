@@ -4,15 +4,15 @@ services:
   - docker
 before_install:
   - docker build -t yshanker/docker-react -f Dockerfile.dev .
-script: 
-  - docker run -e CI=true yshanker/docker-react npm run test
 
+  script:
+  - docker run -e CI=true stephengrider/docker-react npm run test
 
-deploy:
+  deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "dockerReact"
-  env: "DockerReact-env"
+  env: "docker-env"
   bucket_name: "elasticbeanstalk-us-east-2-508016655421"
   bucket_path: "dockerReact"
   on:

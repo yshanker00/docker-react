@@ -5,10 +5,10 @@ services:
 before_install:
   - docker build -t yshanker/docker-react -f Dockerfile.dev .
 
-  script:
+script:
   - docker run -e CI=true yshanker/docker-react npm run test
 
-  deploy:
+deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
   app: "docker-react"
